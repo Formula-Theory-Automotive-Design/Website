@@ -1,0 +1,197 @@
+.about-hero {
+  text-align: center;
+  padding: 80px 20px 50px 20px;
+  background: linear-gradient(135deg, rgba(232, 212, 192, 0.7) 0%, rgba(217, 194, 168, 0.7) 100%);
+  margin-top: 60px;
+}
+
+.about-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #8b6f47;
+  font-weight: 700;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.info-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.text-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #8b6f47;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.motto-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #6b5637;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.text-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #8b6f47;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: #6b5637;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(139, 111, 71, 0.2);
+}
+
+.gallery {
+  background: linear-gradient(135deg, rgba(232, 212, 192, 0.5) 0%, rgba(217, 194, 168, 0.5) 100%);
+  padding: 80px 20px;
+  margin-top: 60px;
+}
+
+.gallery h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #8b6f47;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(139, 111, 71, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(139, 111, 71, 0.25);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .about-hero {
+    padding: 60px 20px 40px 20px;
+    margin-top: 50px;
+  }
+
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .info-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .text-content h2 {
+    font-size: 2rem;
+  }
+
+  .motto-text {
+    font-size: 1.3rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery-item img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-hero {
+    padding: 40px 15px 30px 15px;
+    margin-top: 40px;
+  }
+
+  .about-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-content {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+
+  .text-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .motto-text {
+    font-size: 1.1rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .gallery {
+    padding: 60px 15px;
+  }
+
+  .gallery h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery-item img {
+    height: 150px;
+  }
+}
