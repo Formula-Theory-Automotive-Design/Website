@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Map</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Raleway", sans-serif;
+      }
+      .container {
+        display: flex;
+        height: 100vh;
+      }
+      .sidebar {
+        width: 300px;
+        padding: 20px;
+        background:  linear-gradient(135deg, #f5e6d3 0%, #e8d4c0 50%, #d9c2a8 100%);;
+        overflow-y: auto;
+      }
+      #map {
+        flex: 1;
+      }
+      .search-box {
+        margin-bottom: 20px;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #000000;
+        border-radius: 4px;
+      }
+      .location-item {
+        padding: 10px;
+        margin: 10px 0;
+        background: rgb(255, 177, 10);
+        border-left: 4px solid #ffae00;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      .location-item:hover {
+        background: #ffd900;
+      }
+      .location-item h4 {
+        margin-bottom: 5px;
+        color: #333;
+      }
+      .location-item p {
+        font-size: 12px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h2>Locations</h2>
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search locations..."
+          />
+        </div>
+        <div id="locationsList"></div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="locations.js"></script>
+  </body>
+</html>
