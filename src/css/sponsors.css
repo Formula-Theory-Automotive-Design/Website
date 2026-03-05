@@ -3,6 +3,7 @@
   padding: 100px 20px 50px 20px;
   background: linear-gradient(135deg, rgba(232, 212, 192, 0.5) 0%, rgba(217, 194, 168, 0.5) 100%);
   margin-top: 70px;
+  position: relative;
 }
 .sponsors h2 {
   font-size: 2.5rem;
@@ -21,7 +22,30 @@
   max-width: 150px;
   height: auto;
 }
-
+.sponsors::before,
+.sponsors::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+.sponsors::before {
+  left: 0;
+  background: linear-gradient(to right,
+    rgba(232, 212, 192, 0.95) 0%,
+    rgba(232, 212, 192, 0) 100%
+  );
+}
+.sponsors::after {
+  right: 0;
+  background: linear-gradient(to left,
+    rgba(232, 212, 192, 0.95) 0%,
+    rgba(232, 212, 192, 0) 100%
+  );
+}
 .sponsors .carousel {
   display: flex;
   overflow-x: auto;
@@ -34,6 +58,11 @@
   min-height: 200px;
   width: 100%;
   max-width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.sponsors .carousel::-webkit-scrollbar {
+  display: none;
 }
 .sponsors .carousel img {
   scroll-snap-align: center;
@@ -48,15 +77,6 @@
   transform: scale(1.15);
   filter: opacity(1);
 }
-
-.sponsors .carousel::-webkit-scrollbar {
-  display: none;
-}
-.sponsors .carousel {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 .ftad-title {
   text-align: center;
   padding: 100px 20px 50px 20px;
@@ -76,7 +96,6 @@
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
 }
-
 .buttons {
   display: flex;
   justify-content: center;

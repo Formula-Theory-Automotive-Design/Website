@@ -3,17 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (carousel) {
     const items = carousel.querySelectorAll("img");
-    items.forEach((item) => {
-      const clone = item.cloneNode(true);
-      carousel.appendChild(clone);
-    });
-    items.forEach((item) => {
-      const clone = item.cloneNode(true);
-      carousel.appendChild(clone);
-    });
 
-    const scrollAmount = 180;
-    const scrollInterval = 3000;
+
+    const scrollAmount = 200;
+    const scrollInterval = 5000;
     let autoScrollInterval;
 
     const startAutoScroll = () => {

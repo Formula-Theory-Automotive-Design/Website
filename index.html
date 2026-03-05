@@ -12,12 +12,74 @@
     <link href="src/css/navbar.css" rel="stylesheet" />
     <link href="src/css/sponsors.css" rel="stylesheet" />
     <link href="src/css/index.css" rel="stylesheet" />
-
     <script src="src/js/main.js"></script>
     <script src="src/js/carousel.js"></script>
     <script src="src/js/index.js"></script>
-      <link rel="icon" type="image/x-icon" href="/src/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/src/images/favicon.png">
+    <style>
+      /* Im actually so lazy*/
+      .ftad-title h1 {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: heroFadeUp 0.9s ease forwards 0.2s;
+      }
+      .ftad-title .typewrite {
+        opacity: 0;
+        animation: heroFadeUp 0.9s ease forwards 0.55s;
+      }
 
+      .buttons {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: heroFadeUp 0.8s ease forwards 0.85s;
+      }
+
+      .reveal {
+        opacity: 0;
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.from-bottom { transform: translateY(40px); }
+      .reveal.from-left   { transform: translateX(-50px); }
+      .reveal.from-right  { transform: translateX(50px); }
+      .reveal.scale-up    { transform: scale(0.92); }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      .reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(25px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+      .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+      .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+      .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+      .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; }
+      .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; }
+      .reveal-stagger.visible > * {
+        opacity: 1;
+        transform: none;
+      }
+
+      @keyframes heroFadeUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ftad-title h1,
+        .ftad-title .typewrite,
+        .buttons,
+        .reveal,
+        .reveal-stagger > * {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -26,34 +88,52 @@
 
     <section class="ftad-title">
       <h1>Formula Theory and Automotive Design</h1>
-     <a class="typewrite" data-period="2000" 
-     data-type='["Passion X Innovation", "Powering the Future of Motorsports", "Teamwork, Competition, Excellence" ]'>
-    <span class="wrap"></span>
-  </a>
+      <a class="typewrite" data-period="2000"
+         data-type='["Creating Technical Entrepreneurs", "Powering the Future of Motorsports", "Teamwork, Competition, Excellence"]'>
+        <span class="wrap"></span>
+      </a>
     </section>
 
     <section class="buttons">
-      <a href="#about">About</a>
+      <a href="about/">About</a>
       <a href="#start-chapter">Start Your Own Chapter</a>
       <a href="https://discord.gg/B877PWwYUE">Join the Discord</a>
     </section>
 
-    <section class="sponsors">
-      <h2>Our Sponsors</h2>
-      <div class="carousel">
+    <section class="sponsors reveal from-bottom">
+      <h2 class="reveal from-bottom">Our Sponsors</h2>
+      <div class="carousel reveal-stagger">
         <img src="src/images/sponsors/caddx.png" alt="CaddX" />
         <img src="src/images/sponsors/dooleypyne.jpg" alt="Dooley Pyne" />
         <img src="src/images/sponsors/kungfutea.png" alt="Kung Fu Tea" />
         <img src="src/images/sponsors/siemens.png" alt="Siemens" />
         <img src="src/images/sponsors/xunyu.png" alt="Xunyu" />
         <img src="src/images/sponsors/simscale.png" alt="Simscale" />
-
       </div>
     </section>
 
-    <div class="body-text"></div>
+    <div class="body-text reveal from-bottom"></div>
 
     <footer>
       <div data-include="inject/footer.html"></div>
     </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document
+        .querySelectorAll('.reveal, .reveal-stagger')
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
 </html>
